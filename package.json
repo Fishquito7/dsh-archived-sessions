@@ -1,0 +1,55 @@
+{
+  "name": "dsh-archived-sessions",
+  "version": "0.1.0",
+  "description": "View, restore, and delete archived sessions from the DSH web settings panel, plus a CLI.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-api-gateway"
+      ]
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@deepseek-ai/dsh-atomic-write": "^0.1.0-rc.6",
+    "@deepseek-ai/dsh-home-paths": "^0.1.0-rc.6",
+    "@deepseek-ai/dsh-typert-protocol": "^0.1.0-rc.6",
+    "zod": "^4.4.3"
+  },
+  "bin": {
+    "dsh-archived": "./lib/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/strip-client-export.mjs",
+    "prepack": "tsc -p tsconfig.json && node scripts/strip-client-export.mjs"
+  },
+  "files": [
+    "lib",
+    "assets",
+    "README.md",
+    "README.en.md",
+    "LICENSE",
+    "cordis.patch.yml"
+  ],
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "typescript": "^7.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Fishquito7/dsh-archived-sessions.git"
+  }
+}

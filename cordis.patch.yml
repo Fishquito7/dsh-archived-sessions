@@ -1,0 +1,6 @@
+# dsh-archived-sessions bundle patch.
+# Installed with `dsh plugin --profile web add ...`; the profile auto-appends
+# this package to dsh.profile.bundles and applies this layer.
+- insert:
+    - id: archived-sessions
+      name: dsh-archived-sessions

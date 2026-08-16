@@ -1,6 +1,6 @@
 {
   "name": "dsh-archived-sessions",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "View, restore, and delete archived sessions from the DSH web settings panel, plus a CLI.",
   "type": "module",
   "main": "lib/index.js",
@@ -39,6 +39,7 @@
   "files": [
     "lib",
     "assets",
+    "skills",
     "README.md",
     "README.en.md",
     "LICENSE",

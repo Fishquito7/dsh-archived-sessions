@@ -3,6 +3,7 @@ import { rm } from "node:fs/promises";
 import { z } from "zod";
 import { TypertRemoteService } from "@deepseek-ai/dsh-typert-protocol";
 import { compareVersions, currentVersion, fetchLatestReleaseInfo } from "./version.js";
+import { loadEmbeddedSkill } from "./embedded-skill.js";
 
 /**
  * dsh-archived-sessions —— 宿主半区。
@@ -14,11 +15,12 @@ import { compareVersions, currentVersion, fetchLatestReleaseInfo } from "./versi
  *      因此写操作仍然串行化，并会触发 domain/changed 让浏览器收到
  *      host/archived-sessions-changed）；
  *   2. 通过 Typert 暴露 list/checkUpdate/restore/delete 远程方法给设置页与 CLI；
- *   3. delete 同时移除本地 session 日志目录（用户确认的范围）和
+ *   3. 注册一个运行时内置 skill，向模型说明 dsh-archived CLI 用法；
+ *   4. delete 同时移除本地 session 日志目录（用户确认的范围）和
  *      workspace.sessionIds 席位，然后才移出归档集合。
  */
 export const name = "archived-sessions";
-export const inject = ["typert", "workspaceRegistry", "sessionPersistence", "sessions"];
+export const inject = ["typert", "workspaceRegistry", "sessionPersistence", "sessions", "skills"];
 
 // ── Typert wire schemas（zod v4）───────────────────────────────────────────
 
@@ -329,4 +331,10 @@ export function apply(ctx: any) {
 
   new ArchivedSessionsGateway(ctx);
   ctx.effect(() => ctx.typert.register(MANIFEST), "archived-sessions: typert manifest");
+
+  const embeddedSkill = loadEmbeddedSkill();
+  ctx.effect(
+    () => ctx.skills.register({ ...embeddedSkill, source: "runtime" }),
+    "archived-sessions: embedded CLI skill"
+  );
 }

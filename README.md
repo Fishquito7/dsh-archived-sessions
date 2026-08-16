@@ -11,6 +11,9 @@ DSH（DeepSeek Harness）的会话归档只会把会话从侧边栏分组视图�
 
 归档和恢复一次只允许操作一个会话，不支持多选/批量。
 
+插件还会注册一个运行时内置 skill（`dsh-archived-sessions`），向模型说明
+CLI 的用法；skill 正文与包内 `skills/dsh-archived-sessions/SKILL.md` 一致。
+
 ## 界面
 
 ![已归档设置页](assets/screenshot.png)
@@ -20,7 +23,7 @@ DSH（DeepSeek Harness）的会话归档只会把会话从侧边栏分组视图�
 请安装 Release 附带的 tgz 发行包：
 
 ```bash
-dsh plugin --profile web add https://github.com/Fishquito7/dsh-archived-sessions/releases/download/v0.1.0/dsh-archived-sessions-0.1.0.tgz
+dsh plugin --profile web add https://github.com/Fishquito7/dsh-archived-sessions/releases/download/v0.1.1/dsh-archived-sessions-0.1.1.tgz
 ```
 
 > 示例默认使用 `--profile web`；如果你使用其他 profile，请把命令中的 `web`
@@ -70,7 +73,7 @@ pnpm pack
 ```
 
 产物为 `dsh-archived-sessions-<version>.tgz`。发布时把它附加到 GitHub
-Release，tag 建议使用 `v<version>`（例如 `v0.1.0`），资产名保持上述约定。
+Release，tag 建议使用 `v<version>`（例如 `v0.1.1`），资产名保持上述约定。
 
 ## 兼容性
 

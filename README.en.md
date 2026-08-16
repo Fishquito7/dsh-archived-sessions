@@ -14,6 +14,10 @@ closes the two gaps:
 
 Restore and delete operate on one session at a time; there is no multi-select.
 
+The plugin also registers a runtime embedded skill (`dsh-archived-sessions`)
+that teaches the model how to use the CLI; its body matches
+`skills/dsh-archived-sessions/SKILL.md` in the package.
+
 ## Screenshot
 
 ![Archived settings page](assets/screenshot.png)
@@ -23,7 +27,7 @@ Restore and delete operate on one session at a time; there is no multi-select.
 Install the tgz release asset:
 
 ```bash
-dsh plugin --profile web add https://github.com/Fishquito7/dsh-archived-sessions/releases/download/v0.1.0/dsh-archived-sessions-0.1.0.tgz
+dsh plugin --profile web add https://github.com/Fishquito7/dsh-archived-sessions/releases/download/v0.1.1/dsh-archived-sessions-0.1.1.tgz
 ```
 
 > The examples default to `--profile web`; replace `web` with your profile
@@ -78,7 +82,7 @@ pnpm pack
 ```
 
 The artifact is `dsh-archived-sessions-<version>.tgz`. Attach it to a GitHub
-Release with a `v<version>` tag (for example `v0.1.0`) and keep the asset name
+Release with a `v<version>` tag (for example `v0.1.1`) and keep the asset name
 convention.
 
 ## Compatibility

@@ -12,7 +12,7 @@ DSH（DeepSeek Harness）的会话归档只会把会话从侧边栏分组视图�
 归档和恢复一次只允许操作一个会话，不支持多选/批量。
 
 插件还会注册一个运行时内置 skill（`dsh-archived-sessions`），向模型说明
-CLI 的用法；skill 正文与包内 `skills/dsh-archived-sessions/SKILL.md` 一致。
+CLI 的用法；skill 正文与包内 `skills/dsh-archived-sessions/SKILL.md` 一致。因此用户还可以与模型沟通以管理归档，无需让模型额外探查归档工作机制。
 
 ## 界面
 

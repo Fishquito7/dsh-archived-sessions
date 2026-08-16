@@ -32,8 +32,8 @@ dsh plugin --profile web add https://github.com/Fishquito7/dsh-archived-sessions
 > 不推荐直接 `dsh plugin add github:...`：pnpm 11 的安全策略默认拒绝
 > Git 来源依赖运行 prepare 构建脚本。Release tgz 已包含编译产物，可直接安装。
 
-安装后关闭并重新启动 `dsh web`，然后刷新页面。设置 → **已归档**
-（位于“技能”与“Agent 预设”之间）。设置导航图标复用侧边栏三点菜单中
+安装后关闭并重新启动 `dsh web`，然后刷新页面。设置 → **已归档**。
+设置导航图标复用侧边栏三点菜单中
 “归档对话”的图标，颜色跟随设置菜单主题变量。
 
 ## CLI

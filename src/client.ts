@@ -75,8 +75,9 @@
       busy: "处理中…",
       restoreDone: "已恢复对话。",
       deleteDone: "已删除该会话及其日志目录。",
-      updateAvailable: "有新版本可更新：v",
+      updateAvailable: "发现新版本 v",
       updateCurrent: "（当前 v",
+      updateHint: "）。请在终端运行 dsh-archived update 更新。",
       opFailed: "操作失败"
     };
 
@@ -100,6 +101,7 @@
       deleteDone: "Session and its log directory deleted.",
       updateAvailable: "Update available: v",
       updateCurrent: " (current v",
+      updateHint: "). Run dsh-archived update in a terminal.",
       opFailed: "Operation failed"
     };
 
@@ -253,7 +255,7 @@
             ? null
             : (0, react_jsx_runtime.jsx)("div", {
                 className: classes.updateBanner,
-                children: `${t("updateAvailable")}${updateInfo.latest}${t("updateCurrent")}${updateInfo.current})`
+                children: `${t("updateAvailable")}${updateInfo.latest}${t("updateCurrent")}${updateInfo.current}${t("updateHint")}`
               }),
           notice === null
             ? null
